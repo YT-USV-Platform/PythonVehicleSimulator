@@ -17,7 +17,7 @@ N = 10000                           # number of samples
 numDataPoints = 50                  # number of 3D data points
 FPS = 10                            # frames per second (animated GIF)
 filename = '3D_animation.gif'       # data file for animated GIF
-browser = 'safari'  
+browser = 'opera'  
 
 @pytest.fixture
 def vehicle():

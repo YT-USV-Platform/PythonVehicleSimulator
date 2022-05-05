@@ -24,7 +24,7 @@ N = 10000                           # number of samples
 numDataPoints = 50                  # number of 3D data points
 FPS = 10                            # frames per second (animated GIF)
 filename = '3D_animation.gif'       # data file for animated GIF
-browser = 'safari'                  # browser for visualization of animated GIF
+browser = 'opera'                  # browser for visualization of animated GIF
 
 ###############################################################################
 # Vehicle constructors
@@ -44,19 +44,23 @@ tanker('headingAutopilot',psi_d,V_current,beta_c,depth)
 Call constructors without arguments to test step inputs, e.g. DSRV(), otter(), etc. 
 """
 
-no = input("Please enter a vehicle no.: ")   
+# no = input("Please enter a vehicle no.: ")   
 
-match no:                       #  the match statement requires Python >= 3.10
-    case '1': vehicle = DSRV('depthAutopilot',60.0)
-    case '2': vehicle = frigate('headingAutopilot',10.0,100.0)
-    case '3': vehicle = otter('headingAutopilot',100.0,0.3,-30.0,200.0)  
-    case '4': vehicle = ROVzefakkel('headingAutopilot',3.0,100.0)
-    case '5': vehicle = semisub('DPcontrol',10.0,2.0,20.0,0.5,-20.0)
-    case '6': vehicle = shipClarke83('headingAutopilot',-20.0,70,8,6,0.7,0.5,-10.0,1e5)
-    case '7': vehicle = supply('DPcontrol',4.0,4.0,100.0,0.5,-20.0)
-    case '8': vehicle = tanker('headingAutopilot',-20,0.5,150,20,80)
-    case _: print('Error: Not a valid simulator option'), sys.exit()
+# match no:                       #  the match statement requires Python >= 3.10
+#     case '1': vehicle = DSRV('depthAutopilot',60.0)
+#     case '2': vehicle = frigate('headingAutopilot',10.0,100.0)
+#     case '3': vehicle = otter('headingAutopilot',100.0,0.3,-30.0,200.0)  
+#     case '4': vehicle = ROVzefakkel('headingAutopilot',3.0,100.0)
+#     case '5': vehicle = semisub('DPcontrol',10.0,2.0,20.0,0.5,-20.0)
+#     case '6': vehicle = shipClarke83('headingAutopilot',-20.0,70,8,6,0.7,0.5,-10.0,1e5)
+#     case '7': vehicle = supply('DPcontrol',4.0,4.0,100.0,0.5,-20.0)
+#     case '8': vehicle = tanker('headingAutopilot',-20,0.5,150,20,80)
+#     case _: print('Error: Not a valid simulator option'), sys.exit()
     
+vehicle = otter('headingAutopilot',100.0,0.3,-30.0,200.0)  
+
+print("Hello, world!")
+
 printVehicleinfo(vehicle, sampleTime, N)
 
 ###############################################################################
@@ -72,7 +76,7 @@ def main():
     
     """ Ucomment the line below for 3D animation in the web browswer. 
     Alternatively, open the animated GIF file manually in your preferred browser. """
-    # webbrowser.get(browser).open_new_tab('file://' + os.path.abspath(filename))
+    webbrowser.get(browser).open_new_tab('file://' + os.path.abspath(filename))
     
     plt.show()
     plt.close()

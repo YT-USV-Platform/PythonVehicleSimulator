@@ -186,7 +186,7 @@ def plot3D(simData,numDataPoints,FPS,filename,figNo):
     # Attaching 3D axis to the figure
     fig = plt.figure(figNo,figsize=(cm2inch(figSize1[0]),cm2inch(figSize1[1])),
                dpi=dpiValue)
-    ax = p3.Axes3D(fig, auto_add_to_figure=False)
+    ax = p3.Axes3D(fig)
     fig.add_axes(ax) 
     
     # Line/trajectory plot
