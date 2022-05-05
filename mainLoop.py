@@ -7,7 +7,7 @@ Author:     Thor I. Fossen
 """
 
 import numpy as np
-from .gnc import attitudeEuler
+from gnc import attitudeEuler
 
 ###############################################################################
 # Function printSimInfo(vehicle)

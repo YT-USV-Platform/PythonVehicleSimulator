@@ -13,8 +13,16 @@ Author:     Thor I. Fossen
 import os
 import webbrowser
 import matplotlib.pyplot as plt
-from python_vehicle_simulator.vehicles import *
-from python_vehicle_simulator import *
+
+from control import *
+from gnc import *
+from guidance import *
+from mainLoop import *
+from models import *
+from plotTimeSeries import *
+
+from vehicles import *
+
 
 # Simulation parameters: 
 sampleTime = 0.02                   # sample time
@@ -59,8 +67,6 @@ Call constructors without arguments to test step inputs, e.g. DSRV(), otter(), e
     
 vehicle = otter('headingAutopilot',100.0,0.3,-30.0,200.0)  
 
-print("Hello, world!")
-
 printVehicleinfo(vehicle, sampleTime, N)
 
 ###############################################################################
@@ -69,7 +75,7 @@ printVehicleinfo(vehicle, sampleTime, N)
 def main():    
     
     [simTime, simData] = simulate(N, sampleTime, vehicle)
-    
+
     plotVehicleStates(simTime, simData, 1)                    
     plotControls(simTime, simData, vehicle, 2)
     plot3D(simData, numDataPoints, FPS, filename, 3)   
